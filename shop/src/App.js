@@ -40,11 +40,12 @@ function Header(){
 }
 function Index(){
 
-  let data = useSelector((state) => {return state});
+  let shoes = useSelector((state) => {return state.shoes});
+
   return (
     <Container>
     <Row>   
-      {data.map(function(a, i){
+      {shoes.map(function(a, i){
           return(
             <Col sm={4} style={{textAlign : 'center'}}>
               <img src={'https://codingapple1.github.io/shop/shoes'+ (a.id + 1) +'.jpg'} width={'80%'}></img>

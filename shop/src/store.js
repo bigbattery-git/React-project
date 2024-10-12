@@ -11,6 +11,6 @@ let shoes = createSlice({
 
 export default configureStore({
   reducer :{
-    data : data.reducer
+    shoes : shoes.reducer
   }
 });
