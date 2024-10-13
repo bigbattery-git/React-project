@@ -1,10 +1,23 @@
+import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom"
+import { json, useParams } from "react-router-dom"
 
 
 function Detail(props){
   let {id} = useParams();
   let shoes = useSelector((state) => {return state.shoes})
+
+  useEffect(() => {
+        if(localStorage.getItem('watched') === null){
+          localStorage.setItem('watched', JSON.stringify([]));
+        }
+
+        let watched = JSON.parse(localStorage.getItem('watched'));
+        watched.push(shoes[id].id);
+        let set = [...new Set(watched)];
+        localStorage.setItem('watched', JSON.stringify(set));
+  },[])
+
   return (
     <div className="container">
       <div className="row">
@@ -22,4 +35,4 @@ function Detail(props){
   )
 }
 
-export {Detail}
+export default Detail;
