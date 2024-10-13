@@ -7,8 +7,6 @@ let shoes = createSlice({
   ,initialState : data
 })
 
-
-
 export default configureStore({
   reducer :{
     shoes : shoes.reducer
