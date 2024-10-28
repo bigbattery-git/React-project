@@ -5,7 +5,8 @@ import { useState } from 'react';
 
 function Main(){
   
-  const [lists, setLists] = useState([]);
+  let [lists, setLists] = useState([]);
+  let [id, setId] = useState(0);
 
   function AddList(text){
     if(text === null || text === "")
@@ -13,22 +14,25 @@ function Main(){
 
     let copy = [...lists];
 
-    copy.push({id : 0, content : text})
+    copy.push({id : id, content : text})
 
+    setId(id+=1);
     setLists(copy);
   }
-  function RemoveList(text){
-    const copy = [...lists];
 
-    const removeArgu = copy.findIndex((a) => a.content === text);
+  function RemoveList(id){
+    let copy = [...lists];
+
+    let removeArgu = copy.findIndex((a) => a.id === id);
     copy.splice(removeArgu, 1);
 
     setLists(copy);
   }
+
   return(
     <>
       {lists.map((a, i) => {
-        return <CheckBox text={a.content} remove={(text) => RemoveList(text)}/>
+        return <CheckBox list={a} remove={(a) => RemoveList(a)}/>
       })}
       <InputBox addList={(text) => AddList(text)}/>      
     </>
@@ -36,14 +40,15 @@ function Main(){
 }
 
 function CheckBox(props){
+  let id = props.list.id;
   return (
     <>
       <div key={`default-${'checkbox'}`} className="mb-3">
         <Form.Check // prettier-ignore
           type={'checkbox'}
           id={`default-${'checkbox'}`}
-          label={props.text}
-          onChange={() => {props.remove(props.text);}}
+          label={props.list.content}
+          onChange={() => {props.remove(id);}}
         />
       </div>
     </>
@@ -52,7 +57,7 @@ function CheckBox(props){
 
 function InputBox(props){
 
-  const [value, setValue] = useState();
+  let [value, setValue] = useState();
 
   function ResetValue(){
     setValue('');
