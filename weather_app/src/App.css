@@ -5,15 +5,39 @@
 }
 
 .App{
-  width:1200px;
+  max-width:1200px;
+  min-width: 500px;
+  height: 100vh;
   margin:auto;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+
+  background-color: aquamarine;
 }
 
 img{
-  width: 585px;
-  height: 585px;
+  max-width: 585px;
+  max-height: 585px;
+}
+
+.content{
+  width: 380px;
+  height: 108px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1{
+  font-size: 80px;
+}
+
+h2{
+  font-size: 48px;
+}
+
+h3{
+  font-size: 32px;
 }
