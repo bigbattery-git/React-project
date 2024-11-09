@@ -1,0 +1,50 @@
+.arrow{
+  width: 175px;
+  height: 175px;
+
+  background-color: transparent;
+  background-size: cover;
+  background-position: center;
+  border: none;
+
+  opacity: 0.4;
+}
+
+.arrow:hover{
+  opacity: 1;
+  transition: opacity 0.5s;
+  cursor: pointer;
+}
+
+.container{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+img{
+  max-width: 585px;
+  max-height: 585px;
+}
+
+.content{
+  width: 380px;
+  height: 108px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1{
+  font-size: 80px;
+}
+
+h2{
+  font-size: 48px;
+}
+
+h3{
+  font-size: 32px;
+}
