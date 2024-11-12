@@ -25,6 +25,8 @@
 }
 
 img{
+  min-width: 250px;
+  min-height: 250px;
   max-width: 585px;
   max-height: 585px;
 }

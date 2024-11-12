@@ -21,6 +21,7 @@ function Index(props){
 			setWeatherName(data.data.weather[0].description);
 			setName(name);
 			setWeatherIcon(data.data.weather[0].icon);
+      console.log(data.data);
     })
     .catch(error => {console.log(error)});
   }
@@ -36,8 +37,6 @@ function Index(props){
     else{
       setCurrentState(currentState + num);
     }
-
-		console.log(`num : ${num} \n currentState : ${currentState}`);
   }
 
 	useEffect(()=>{
